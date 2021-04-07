@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap);
 /*! normalize.scss v0.1.0 | MIT License | based on git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -355,4 +356,149 @@ table {
 td,
 th {
   padding: 0; }
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #3C3C3C;
+  background-color: #FFEBEB; }
+
+button {
+  outline: none; }
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto; }
+
+.player {
+  width: 100%;
+  height: 600px;
+  margin-top: 100px;
+  background: #fff;
+  box-shadow: 0px 0px 60px rgba(234, 0, 17, 0.15);
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  position: relative; }
+  .player__left {
+    width: 50%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat; }
+  .player__right {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .player__controls {
+    margin-top: 60px; }
+  .player__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .player__button {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    background: rgba(128, 128, 128, 0.2);
+    color: #3C3C3C;
+    transition: all 0.2s linear; }
+    .player__button--play {
+      margin: 0 20px;
+      color: #fff;
+      background: #FF4F5B;
+      box-shadow: 0px 0px 50px rgba(234, 0, 17, 0.15); }
+      .player__button--play:hover {
+        box-shadow: 0px 0px 15px rgba(234, 0, 17, 0.5); }
+      .player__button--play:active {
+        background: #ff1c2b; }
+    .player__button--prev:hover, .player__button--next:hover {
+      background: #d5d5d5; }
+    .player__button--prev:active, .player__button--next:active {
+      background: #bcbcbc; }
+  .player__duration {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 60px; }
+  .player input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    max-width: 200px;
+    outline: none;
+    height: 2px;
+    background: rgba(128, 128, 128, 0.2); }
+    .player input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 14px;
+      width: 14px;
+      background: #FF4F5B;
+      border-radius: 50%;
+      cursor: pointer; }
+  .player__counter {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    padding: 8px 18px;
+    background: #FFEBEB;
+    border-radius: 50px;
+    color: #3C3C3C;
+    font-size: 16px; }
+  .player__volume {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background: #FFEBEB;
+    overflow: hidden;
+    transition: all 0.2s linear; }
+    .player__volume_slider {
+      width: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-right: 15px; }
+      .player__volume_slider input[type="range"] {
+        max-width: 100%; }
+    .player__volume_button {
+      min-width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: #FFEBEB;
+      color: #3C3C3C;
+      font-size: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.2s linear; }
+      .player__volume_button:hover {
+        background: #FF4F5B;
+        color: #fff; }
+    .player__volume:hover {
+      width: 170px; }
+
+.track__title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600; }
+
+.track__autor {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 300;
+  margin-top: 10px; }
 
