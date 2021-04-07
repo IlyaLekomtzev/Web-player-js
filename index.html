@@ -12,18 +12,16 @@
     <main class="container">
         <section class="player">
             <!-- Left -->
-            <div class="player__left" style="background-image: url('dist/assets/img/cover_1.png');">
-
-            </div>
+            <div class="player__left" id="cover_image"></div>
 
             <!-- Right -->
             <div class="player__right">
                 <div class="player__content">
                     <div class="track">
-                        <div class="track__title">
+                        <div class="track__title" id="title">
                             Когда-нибудь
                         </div>
-                        <div class="track__autor">
+                        <div class="track__autor" id="autor">
                             Anacondaz
                         </div>
                     </div>
@@ -41,6 +39,8 @@
                         </div>
                         <div class="player__duration">
                             <input type="range" min="0" max="100" value="0" id="duration_slider">
+                            <div id="from"></div>
+                            <div id="to"></div>
                         </div>
                     </div>
                 </div>
@@ -49,12 +49,13 @@
             <!-- Counter -->
             <div class="player__counter">
                 <span id="current_number">1</span> / <span id="total_number">6</span>
+                <audio src="dist/assets/music/1.mp3"></audio>
             </div>
 
             <!-- Volume -->
             <div class="player__volume">
                 <div class="player__volume_slider">
-                    <input type="range" min="0" max="100" value="0" id="volume_slider">
+                    <input type="range" min="0" max="100" value="90" id="volume_slider">
                 </div>
                 <button class="player__volume_button">
                     <i class="fas fa-volume-up"></i>
