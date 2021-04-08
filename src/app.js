@@ -93,6 +93,7 @@ class webPlayer {
         // setTimeout(() => {
         //     document.getElementById('from').innerHTML = `${parseInt(this.track.duration / 60)}:${parseInt(this.track.duration % 60)}`;
         // }, 200);
+        document.title = `${selectTrack.autor} - ${selectTrack.name}`;
         this.durationSlider.value = 0;
         this.timer = setInterval(() => {
             this.rangeDurationSlider();
