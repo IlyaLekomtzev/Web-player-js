@@ -58,6 +58,7 @@ class webPlayer {
      */
     initBaseActions () {
         this.track = document.createElement('audio');
+        this.volumeSlider.value = this.lastVolume * 100;
         this.track.volume = this.volumeSlider.value / 100;
         this.totalCount.innerHTML = this.allTracks.length;
     }
@@ -191,10 +192,15 @@ class webPlayer {
      */
     changeVolume () {
         this.track.volume = this.volumeSlider.value / 100;
-        if (+this.track.volume === 0)
+        if (+this.track.volume === 0) {
             this.volume = false;
-        else
+            this.volumeButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            this.volumeButton.classList.add('mute');
+        } else {
             this.volume = true;
+            this.volumeButton.innerHTML = '<i class="fas fa-volume-up"></i>';
+            this.volumeButton.classList.remove('mute');
+        }
     };
 
     /**
