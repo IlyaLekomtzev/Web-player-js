@@ -51,13 +51,41 @@ class webPlayer {
                 img: 'dist/assets/img/cover_1.png'
             },
         ]; //Массив треков
+        //this.allTracks = [];
+
+        this.SPOTIFY_TOKEN = 'BQAWu6XAwushr5CJOaq4EuaOb_TtvVrRTUHQCbptiFOEKC1KLW6gC1Hj6rcAEycjLXHRVD9yXi3dHTHzu6FJIHtGVxAAK4lBzaKH--3jhOKFi39k72DsR3t1Slae2RdSBI5PvJt9DlWhgH6LyxPoJsTJsAUJ-cW8ApitmZLZEfKXqJ_pGF7BAkYwMpg';
     };
 
     /**
      * Совершает базовые действия при загрузке страницы
      */
-    initBaseActions () {
+    async initBaseActions () {
         this.track = document.createElement('audio');
+        
+        await this.spotifyRequest()
+            .then(data => {
+                data.items.forEach(item => {
+                    (async () => {
+                        await this.spotifyRequestTrack(item.track.id)
+                        .then(track => {
+                            this.allTracks.push({
+                                name: track.name,
+                                autor: track.artists[0].name,
+                                path: track.preview_url,
+                                img: track.album.images[0].url
+                            });
+                        })
+                        .catch(e => {
+                            console.error(e);
+                        });
+                    })(); 
+                });
+                
+            })
+            .catch(e => {
+                console.error(e);
+            });
+
         this.volumeSlider.value = this.lastVolume * 100;
         this.track.volume = this.volumeSlider.value / 100;
         this.totalCount.innerHTML = this.allTracks.length;
@@ -94,6 +122,28 @@ class webPlayer {
         this.durationSlider.addEventListener('mouseleave', () => {
             this.durationHover = false;
         });
+    };
+
+    async spotifyRequest () {
+        const response = await fetch('https://api.spotify.com/v1/me/tracks?market=ES&limit=10&offset=5', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${this.SPOTIFY_TOKEN}`
+            },
+        });
+        return await response.json();
+    };
+
+    async spotifyRequestTrack (id) {
+        const response = await fetch(`https://api.spotify.com/v1/tracks/${id}?market=ES`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${this.SPOTIFY_TOKEN}`
+            },
+        });
+        return await response.json();
     };
 
     /**
