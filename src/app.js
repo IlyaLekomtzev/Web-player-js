@@ -72,7 +72,7 @@ class webPlayer {
         this.previous.addEventListener('click', () => {
             this.prevTrack();
         });
-        this.volumeSlider.addEventListener('change', () => {
+        this.volumeSlider.addEventListener('input', () => {
             this.changeVolume();
         });
         this.durationSlider.addEventListener('change', () => {
