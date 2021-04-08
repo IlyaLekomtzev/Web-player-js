@@ -446,13 +446,25 @@ button {
     outline: none;
     height: 2px;
     background: rgba(128, 128, 128, 0.2); }
+    .player input[type="range"]::-moz-range-thumb {
+      -moz-appearance: none;
+      height: 14px;
+      width: 14px;
+      background: #FF4F5B;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer; }
     .player input[type="range"]::-webkit-slider-thumb {
       -webkit-appearance: none;
       height: 14px;
       width: 14px;
       background: #FF4F5B;
+      border: none;
       border-radius: 50%;
       cursor: pointer; }
+    .player input[type="range"]::-moz-range-progress {
+      background: #FF4F5B;
+      height: 2px; }
   .player__counter {
     position: absolute;
     top: 30px;
@@ -496,6 +508,9 @@ button {
       align-items: center;
       transition: all 0.2s linear; }
       .player__volume_button:hover {
+        background: #FF4F5B;
+        color: #fff; }
+      .player__volume_button.mute {
         background: #FF4F5B;
         color: #fff; }
     .player__volume:hover {

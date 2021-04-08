@@ -103,16 +103,32 @@
         outline: none;
         height: 2px;
         background: $gray-light;
-    
+
+        &::-moz-range-thumb{
+            -moz-appearance: none;
+            height: 14px;
+            width: 14px;
+            background: $red;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+        }
         &::-webkit-slider-thumb{
             -webkit-appearance: none;
             height: 14px;
             width: 14px;
             background: $red;
+            border: none;
             border-radius: 50%;
             cursor: pointer;
         }
+
+        &::-moz-range-progress{
+            background: $red;
+            height: 2px;
+        }
     }
+    
 
     &__counter{
         position: absolute;
@@ -165,6 +181,11 @@
             transition: $transition;
 
             &:hover{
+                background: $red;
+                color: #fff;
+            }
+
+            &.mute{
                 background: $red;
                 color: #fff;
             }
