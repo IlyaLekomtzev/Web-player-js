@@ -76,8 +76,24 @@
     &__duration{
         width: 100%;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
         padding-top: 60px;
+
+        input[type="range"]{
+            margin: 10px 0;
+        }
+    }
+
+    &__time{
+        width: 100%;
+        max-width: 200px;
+        display: flex;
+        justify-content: space-between;
+
+        &_item{
+            font-size: 12px;
+        }
     }
 
     input[type="range"]{

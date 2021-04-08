@@ -427,8 +427,18 @@ button {
   .player__duration {
     width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     padding-top: 60px; }
+    .player__duration input[type="range"] {
+      margin: 10px 0; }
+  .player__time {
+    width: 100%;
+    max-width: 200px;
+    display: flex;
+    justify-content: space-between; }
+    .player__time_item {
+      font-size: 12px; }
   .player input[type="range"] {
     -webkit-appearance: none;
     width: 100%;
